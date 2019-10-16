@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: cb53ed86a4f6d5f4084dadf18e75be3c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: she_0
+    21300002: she_1
+    21300004: she_2
+    21300006: she_3
+    21300008: she_4
+    21300010: she_5
+    21300012: she_6
+    21300014: she_7
+    21300016: she_8
+    21300018: she_9
+    21300020: she_10
+    21300022: she_11
+    21300024: she_12
+    21300026: she_13
+    21300028: she_14
+    21300030: she_15
+    21300032: she_16
+    21300034: she_17
+    21300036: she_18
+    21300038: she_19
+    21300040: she_20
+    21300042: she_21
+    21300044: she_22
+    21300046: she_23
+    21300048: she_24
+    21300050: she_25
+    21300052: she_26
+    21300054: she_27
+    21300056: she_28
+    21300058: she_29
+    21300060: she_30
+    21300062: she_31
+    21300064: she_32
+    21300066: she_33
+    21300068: she_34
+    21300070: she_35
+    21300072: she_36
+    21300074: she_37
+    21300076: she_38
+    21300078: she_39
+    21300080: she_40
+    21300082: she_41
+    21300084: she_42
+    21300086: she_43
+    21300088: she_44
+    21300090: she_45
+    21300092: she_46
+    21300094: she_47
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: she_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3
+        width: 704
+        height: 386
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_1
+        position: {x: 352.24442, y: 222.3607, z: 0}
+        rotation: {x: 0, y: 0, z: -0.69405943, w: 0.7199177}
+        length: 46.041298
+        parentId: -1
+      - name: bone_2
+        position: {x: 46.04129, y: 0.000004101661, z: 0}
+        rotation: {x: 0, y: 0, z: -0.6713473, w: 0.74114287}
+        length: 120.617744
+        parentId: 0
+      - name: bone_3
+        position: {x: 120.61774, y: 0.000013247405, z: 0}
+        rotation: {x: 0, y: 0, z: 0.2165161, w: 0.9762791}
+        length: 144.1249
+        parentId: 1
+      - name: bone_4
+        position: {x: -114.80983, y: 21.860271, z: 0}
+        rotation: {x: 0, y: -0, z: 0.92555547, w: 0.378612}
+        length: 201.66096
+        parentId: 1
+      spriteID: aa482d86f098b9e4290069d3b8dd685b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a48ae41f09207034baa4d8a9aec67418
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

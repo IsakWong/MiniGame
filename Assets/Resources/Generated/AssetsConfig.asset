@@ -1,0 +1,342 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73d097c746ea7a44bce2291e78b6779, type: 3}
+  m_Name: AssetsConfig
+  m_EditorClassIdentifier: 
+  List:
+  - AssetsName: air-pump-short-2
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\air-pump-short-2
+  - AssetsName: boom
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\boom
+  - AssetsName: ding
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\ding
+  - AssetsName: ding2
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\ding2
+  - AssetsName: ding3
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\ding3
+  - AssetsName: Dong
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\Dong
+  - AssetsName: Magic
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\Magic
+  - AssetsName: magic_field
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\magic_field
+  - AssetsName: spell2
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\spell2
+  - AssetsName: spell3
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\spell3
+  - AssetsName: "\u60C5\u4E66-\u6280\u80FD-\u97F3\u6548"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u60C5\u4E66-\u6280\u80FD-\u97F3\u6548"
+  - AssetsName: "\u60CA\u96F7\u58F0"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u60CA\u96F7\u58F0"
+  - AssetsName: "\u6361\u8D77\u661F\u661F"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u6361\u8D77\u661F\u661F"
+  - AssetsName: "\u661F\u661F-\u6280\u80FD-\u53D1\u5C04\u97F3\u6548"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u661F\u661F-\u6280\u80FD-\u53D1\u5C04\u97F3\u6548"
+  - AssetsName: "\u805A\u5149\u706F\u901A\u7535"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u805A\u5149\u706F\u901A\u7535"
+  - AssetsName: "\u80CC\u666F\u4E2D\u7684\u5632\u7B11\u58F0"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u80CC\u666F\u4E2D\u7684\u5632\u7B11\u58F0"
+  - AssetsName: "\u89E6\u624B\u56DE\u7F29"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u89E6\u624B\u56DE\u7F29"
+  - AssetsName: "\u9ED1\u8272\u89E6\u624B\u51FA\u573A"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u9ED1\u8272\u89E6\u624B\u51FA\u573A"
+  - AssetsName: 3-1
+    AssetBundleName: music
+    AssetPath: Extra Resources\Music\3-1
+  - AssetsName: Acid Rain
+    AssetBundleName: music
+    AssetPath: Extra Resources\Music\Acid Rain
+  - AssetsName: main_menu_bgm
+    AssetBundleName: music
+    AssetPath: Extra Resources\Music\main_menu_bgm
+  - AssetsName: silent_hill
+    AssetBundleName: music
+    AssetPath: Extra Resources\Music\silent_hill
+  - AssetsName: WelcomeBGM
+    AssetBundleName: music
+    AssetPath: Extra Resources\Music\WelcomeBGM
+  - AssetsName: "\u516B\u97F3\u76D22-1"
+    AssetBundleName: music
+    AssetPath: "Extra Resources\\Music\\\u516B\u97F3\u76D22-1"
+  - AssetsName: "\u516B\u97F3\u76D22-2"
+    AssetBundleName: music
+    AssetPath: "Extra Resources\\Music\\\u516B\u97F3\u76D22-2"
+  - AssetsName: "\u96E8\u591C-01"
+    AssetBundleName: music
+    AssetPath: "Extra Resources\\Music\\\u96E8\u591C-01"
+  - AssetsName: "\u96E8\u591C-02"
+    AssetBundleName: music
+    AssetPath: "Extra Resources\\Music\\\u96E8\u591C-02"
+  - AssetsName: "\u96E8\u591C-03"
+    AssetBundleName: music
+    AssetPath: "Extra Resources\\Music\\\u96E8\u591C-03"
+  - AssetsName: 0
+    AssetBundleName: sound
+    AssetPath: Extra Resources\Sound\0
+  - AssetsName: "Boss\u51FA\u573A\u5632\u7B11\u58F0"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\Boss\u51FA\u573A\u5632\u7B11\u58F0"
+  - AssetsName: "Boss\u53D7\u51FB"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\Boss\u53D7\u51FB"
+  - AssetsName: "\u6253\u96F7+\u96E8\u58F0\u6DF7\u5408"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u6253\u96F7+\u96E8\u58F0\u6DF7\u5408"
+  - AssetsName: "\u6263\u8840\u97F3\u6548"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u6263\u8840\u97F3\u6548"
+  - AssetsName: "\u6361\u8D77\u5C0F\u718A"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u6361\u8D77\u5C0F\u718A"
+  - AssetsName: "\u65F6\u949F"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u65F6\u949F"
+  - AssetsName: "\u83B7\u5F97\u7CD6\u679C\u97F3\u6548"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u83B7\u5F97\u7CD6\u679C\u97F3\u6548"
+  - AssetsName: "\u9F7F\u8F6E"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u9F7F\u8F6E"
+  - AssetsName: "\u9F7F\u8F6E\u8F6C\u52A8"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u9F7F\u8F6E\u8F6C\u52A8"
+  - AssetsName: "\u9F7F\u8F6E\u8F6C\u52A8_\u77ED"
+    AssetBundleName: sound
+    AssetPath: "Extra Resources\\Sound\\\u9F7F\u8F6E\u8F6C\u52A8_\u77ED"
+  - AssetsName: FakeCore
+    AssetBundleName: biz
+    AssetPath: Biz\FakeCore
+  - AssetsName: Sound
+    AssetBundleName: biz
+    AssetPath: Biz\Sound
+  - AssetsName: Success
+    AssetBundleName: biz
+    AssetPath: Biz\Success
+  - AssetsName: Words
+    AssetBundleName: biz
+    AssetPath: Biz\Words
+  - AssetsName: DebugCanvas
+    AssetBundleName: canvas
+    AssetPath: Biz\Canvas\DebugCanvas
+  - AssetsName: MainCanvas
+    AssetBundleName: canvas
+    AssetPath: Biz\Canvas\MainCanvas
+  - AssetsName: UICanvas
+    AssetBundleName: canvas
+    AssetPath: Biz\Canvas\UICanvas
+  - AssetsName: DebugView
+    AssetBundleName: debug
+    AssetPath: Biz\Debug\DebugView
+  - AssetsName: BloodEffect
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\BloodEffect
+  - AssetsName: BlueProjectile
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\BlueProjectile
+  - AssetsName: Boom3DText
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\Boom3DText
+  - AssetsName: MagicField
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\MagicField
+  - AssetsName: Particle System
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\Particle System
+  - AssetsName: RainEffect
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\RainEffect
+  - AssetsName: SmokeBoom
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\SmokeBoom
+  - AssetsName: StarBloom
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\StarBloom
+  - AssetsName: ThunderEffect
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\ThunderEffect
+  - AssetsName: YellowProjectile
+    AssetBundleName: effect
+    AssetPath: Biz\Effect\YellowProjectile
+  - AssetsName: BandageEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\BandageEnemy
+  - AssetsName: BlackCharacter
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\BlackCharacter
+  - AssetsName: BlackCharacterB
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\BlackCharacterB
+  - AssetsName: BookEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\BookEnemy
+  - AssetsName: CandyEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\CandyEnemy
+  - AssetsName: ChalkEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\ChalkEnemy
+  - AssetsName: Charge_01.2
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\Charge_01.2
+  - AssetsName: DirtyWordsEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\DirtyWordsEnemy
+  - AssetsName: DollEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\DollEnemy
+  - AssetsName: FunnyFaceBoss
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\FunnyFaceBoss
+  - AssetsName: HandEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\HandEnemy
+  - AssetsName: PaperBallEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\PaperBallEnemy
+  - AssetsName: PencilEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\PencilEnemy
+  - AssetsName: StarEnemy
+    AssetBundleName: enemy
+    AssetPath: Biz\Enemy\StarEnemy
+  - AssetsName: GuideOverlay
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\GuideOverlay
+  - AssetsName: LevelBeginView
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\LevelBeginView
+  - AssetsName: LevelDefeatView
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\LevelDefeatView
+  - AssetsName: LevelOverlayView
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\LevelOverlayView
+  - AssetsName: LevelPauseView
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\LevelPauseView
+  - AssetsName: LevelVictoryView
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\LevelVictoryView
+  - AssetsName: LoadingView
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\LoadingView
+  - AssetsName: LoginView
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\LoginView
+  - AssetsName: Tips
+    AssetBundleName: levelview
+    AssetPath: Biz\LevelView\Tips
+  - AssetsName: MainMenu
+    AssetBundleName: mainmenu
+    AssetPath: Biz\MainMenu\MainMenu
+  - AssetsName: Watch
+    AssetBundleName: mainmenu
+    AssetPath: Biz\MainMenu\Watch
+  - AssetsName: WheelWidget
+    AssetBundleName: mainmenu
+    AssetPath: Biz\MainMenu\WheelWidget
+  - AssetsName: Story0
+    AssetBundleName: story
+    AssetPath: Biz\Story\Story0
+  - AssetsName: Story1_3
+    AssetBundleName: story
+    AssetPath: Biz\Story\Story1_3
+  - AssetsName: Main
+    AssetBundleName: world
+    AssetPath: Biz\World\Main
+  - AssetsName: SpotLight
+    AssetBundleName: world
+    AssetPath: Biz\World\SpotLight
+  - AssetsName: Star
+    AssetBundleName: world
+    AssetPath: Biz\World\Star
+  - AssetsName: Stars
+    AssetBundleName: world
+    AssetPath: Biz\World\Stars
+  - AssetsName: Wheel
+    AssetBundleName: world
+    AssetPath: Biz\World\Wheel
+  - AssetsName: WorldLevel0
+    AssetBundleName: world
+    AssetPath: Biz\World\WorldLevel0
+  - AssetsName: WorldLevel1
+    AssetBundleName: world
+    AssetPath: Biz\World\WorldLevel1
+  - AssetsName: WorldLevel2
+    AssetBundleName: world
+    AssetPath: Biz\World\WorldLevel2
+  - AssetsName: WorldLevel3
+    AssetBundleName: world
+    AssetPath: Biz\World\WorldLevel3
+  - AssetsName: WorldLevel4
+    AssetBundleName: world
+    AssetPath: Biz\World\WorldLevel4
+  - AssetsName: WorldLevel5
+    AssetBundleName: world
+    AssetPath: Biz\World\WorldLevel5
+  - AssetsName: WorldLevel6
+    AssetBundleName: world
+    AssetPath: Biz\World\WorldLevel6
+  - AssetsName: AssetsConfig
+    AssetBundleName: generated
+    AssetPath: Generated\AssetsConfig
+  - AssetsName: EnemyTypeList
+    AssetBundleName: generated
+    AssetPath: Generated\EnemyTypeList
+  - AssetsName: GuideConfig
+    AssetBundleName: generated
+    AssetPath: Generated\GuideConfig
+  - AssetsName: Level1EnemyList
+    AssetBundleName: generated
+    AssetPath: Generated\Level1EnemyList
+  - AssetsName: Level2EnemyList
+    AssetBundleName: generated
+    AssetPath: Generated\Level2EnemyList
+  - AssetsName: Level3EnemyList
+    AssetBundleName: generated
+    AssetPath: Generated\Level3EnemyList
+  - AssetsName: Level4EnemyList
+    AssetBundleName: generated
+    AssetPath: Generated\Level4EnemyList
+  - AssetsName: Level5EnemyList
+    AssetBundleName: generated
+    AssetPath: Generated\Level5EnemyList
+  - AssetsName: Level6EnemyList
+    AssetBundleName: generated
+    AssetPath: Generated\Level6EnemyList
+  - AssetsName: SettingsConfig
+    AssetBundleName: generated
+    AssetPath: Generated\SettingsConfig
+  - AssetsName: UserConfig
+    AssetBundleName: generated
+    AssetPath: Generated\UserConfig
+  - AssetsName: WorldCacheAssetConfig
+    AssetBundleName: generated
+    AssetPath: Generated\WorldCacheAssetConfig

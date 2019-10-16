@@ -1,0 +1,357 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8045deeb0bfb9f43bcbe8e158c3e436, type: 3}
+  m_Name: Level1EnemyList
+  m_EditorClassIdentifier: 
+  LevelEnemyList:
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 2
+    Angle: 87
+    AngleVelocity: 0
+    VelocityDirectionAngle: 267
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 3
+    Angle: 45
+    AngleVelocity: 0
+    VelocityDirectionAngle: 225
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 5
+    Angle: 280
+    AngleVelocity: 0
+    VelocityDirectionAngle: 460
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 6
+    Angle: 225
+    AngleVelocity: 0
+    VelocityDirectionAngle: 405
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 7
+    Angle: 275
+    AngleVelocity: 0
+    VelocityDirectionAngle: 455
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 8
+    Angle: 315
+    AngleVelocity: 0
+    VelocityDirectionAngle: 495
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 9
+    Angle: 270
+    AngleVelocity: 0
+    VelocityDirectionAngle: 450
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 10.5
+    Angle: 160
+    AngleVelocity: 0
+    VelocityDirectionAngle: 340
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 12
+    Angle: 100
+    AngleVelocity: 0
+    VelocityDirectionAngle: 280
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 5
+    EnemyMoveType: 0
+    GenerateTime: 14
+    Angle: 270
+    AngleVelocity: 0
+    VelocityDirectionAngle: 450
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 2
+    EnemyMoveType: 0
+    GenerateTime: 16.5
+    Angle: 100
+    AngleVelocity: 0
+    VelocityDirectionAngle: 280
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 6
+    EnemyMoveType: 0
+    GenerateTime: 20.5
+    Angle: 255
+    AngleVelocity: 0
+    VelocityDirectionAngle: 435
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 2
+    EnemyMoveType: 0
+    GenerateTime: 22.5
+    Angle: 260
+    AngleVelocity: 0
+    VelocityDirectionAngle: 440
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 23.5
+    Angle: 280
+    AngleVelocity: 0
+    VelocityDirectionAngle: 460
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 29
+    Angle: 165
+    AngleVelocity: 0
+    VelocityDirectionAngle: 345
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 2
+    EnemyMoveType: 0
+    GenerateTime: 30.5
+    Angle: 105
+    AngleVelocity: 0
+    VelocityDirectionAngle: 285
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 5
+    EnemyMoveType: 0
+    GenerateTime: 31
+    Angle: 250
+    AngleVelocity: 0
+    VelocityDirectionAngle: 430
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 2
+    EnemyMoveType: 0
+    GenerateTime: 31.5
+    Angle: 80
+    AngleVelocity: 0
+    VelocityDirectionAngle: 260
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 37
+    Angle: 85
+    AngleVelocity: 0
+    VelocityDirectionAngle: 265
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 37.5
+    Angle: 105
+    AngleVelocity: 0
+    VelocityDirectionAngle: 285
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 38
+    Angle: 125
+    AngleVelocity: 0
+    VelocityDirectionAngle: 305
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 38.5
+    Angle: 145
+    AngleVelocity: 0
+    VelocityDirectionAngle: 325
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 39.5
+    Angle: 225
+    AngleVelocity: 0
+    VelocityDirectionAngle: 405
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 40
+    Angle: 245
+    AngleVelocity: 0
+    VelocityDirectionAngle: 425
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 40.5
+    Angle: 265
+    AngleVelocity: 0
+    VelocityDirectionAngle: 445
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 41
+    Angle: 285
+    AngleVelocity: 0
+    VelocityDirectionAngle: 465
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 5
+    EnemyMoveType: 0
+    GenerateTime: 41.5
+    Angle: 45
+    AngleVelocity: 0
+    VelocityDirectionAngle: 225
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 42.5
+    Angle: 185
+    AngleVelocity: 0
+    VelocityDirectionAngle: 365
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 42.75
+    Angle: 175
+    AngleVelocity: 0
+    VelocityDirectionAngle: 355
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 43
+    Angle: 165
+    AngleVelocity: 0
+    VelocityDirectionAngle: 345
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 43.25
+    Angle: 155
+    AngleVelocity: 0
+    VelocityDirectionAngle: 335
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 43.5
+    Angle: 145
+    AngleVelocity: 0
+    VelocityDirectionAngle: 325
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 43.75
+    Angle: 135
+    AngleVelocity: 0
+    VelocityDirectionAngle: 315
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 44
+    Angle: 125
+    AngleVelocity: 0
+    VelocityDirectionAngle: 305
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 44.25
+    Angle: 115
+    AngleVelocity: 0
+    VelocityDirectionAngle: 295
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 44.5
+    Angle: 105
+    AngleVelocity: 0
+    VelocityDirectionAngle: 285
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 44.75
+    Angle: 95
+    AngleVelocity: 0
+    VelocityDirectionAngle: 275
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0
+  - Type: 4
+    EnemyMoveType: 0
+    GenerateTime: 45
+    Angle: 85
+    AngleVelocity: 0
+    VelocityDirectionAngle: 265
+    Velocity: 1.5
+    Drag: 0
+    AngleDrag: 0

@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9928bbc0006a09b47a29f9e648ed3d48, type: 3}
+  m_Name: WorldCacheAssetConfig
+  m_EditorClassIdentifier: 
+  SerializedList:
+  - WorldIndex: 0
+    SerializedList:
+    - LoadingView
+    - EnemyTypeList
+    - MainMenu
+    - Story0
+    - DebugView
+  - WorldIndex: 1
+    SerializedList:
+    - "\u96E8\u591C-01"
+    - Level1EnemyList
+    - WorldCacheAssetConfig
+    - LevelOverlayView
+    - LevelBeginView
+    - Sound
+    - Dong
+    - ChalkEnemy
+    - GuideOverlay
+    - GuideConfig
+    - StarBloom
+    - ding3
+    - ThunderEffect
+    - "\u6263\u8840\u97F3\u6548"
+    - CandyEnemy
+    - PaperBallEnemy
+    - SmokeBoom
+    - "\u83B7\u5F97\u7CD6\u679C\u97F3\u6548"
+    - DollEnemy
+    - "\u6361\u8D77\u5C0F\u718A"
+    - LevelVictoryView
+    - "\u9F7F\u8F6E"
+    - "\u65F6\u949F"
+    - DebugView
+    - LevelPauseView
+  - WorldIndex: 2
+    SerializedList:
+    - "\u96E8\u591C-02"
+    - Level2EnemyList
+    - PencilEnemy
+    - Boom3DText
+    - BookEnemy
+  - WorldIndex: 3
+    SerializedList:
+    - Level3EnemyList
+    - "\u805A\u5149\u706F\u901A\u7535"
+    - "\u96E8\u591C-03"
+    - FunnyFaceBoss
+    - "Boss\u51FA\u573A\u5632\u7B11\u58F0"
+    - DirtyWordsEnemy
+    - "Boss\u53D7\u51FB"
+    - Words
+    - LevelPauseView
+    - HandEnemy
+    - "\u9ED1\u8272\u89E6\u624B\u51FA\u573A"
+    - MagicField
+    - Story1_3
+    - DebugView
+    - WorldCacheAssetConfig
+    - LevelOverlayView
+    - LevelBeginView
+    - Sound
+    - Dong
+    - SmokeBoom
+    - Boom3DText
+    - ThunderEffect
+    - StarBloom
+    - ding3
+    - GuideOverlay
+    - GuideConfig
+    - "\u6263\u8840\u97F3\u6548"
+    - LevelVictoryView
+    - "\u9F7F\u8F6E"
+  - WorldIndex: 4
+    SerializedList:
+    - Level4EnemyList
+    - "\u516B\u97F3\u76D22-1"
+    - PencilEnemy
+    - PaperBallEnemy
+  - WorldIndex: 5
+    SerializedList:
+    - Level5EnemyList
+    - "\u516B\u97F3\u76D22-2"
+    - StarEnemy
+    - "\u6361\u8D77\u661F\u661F"
+    - YellowProjectile
+    - Boom3DText
+    - BlackCharacter
+    - WorldCacheAssetConfig
+    - LevelOverlayView
+    - LevelBeginView
+    - ThunderEffect
+    - ChalkEnemy
+    - StarBloom
+    - Sound
+    - ding3
+    - SmokeBoom
+    - PaperBallEnemy
+    - CandyEnemy
+    - "\u83B7\u5F97\u7CD6\u679C\u97F3\u6548"
+    - GuideOverlay
+    - GuideConfig
+    - LevelVictoryView
+    - "\u9F7F\u8F6E"
+    - "\u65F6\u949F"
+  - WorldIndex: 6
+    SerializedList:
+    - 3-1
+    - Success

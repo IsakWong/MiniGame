@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Canvas
+  - EnergyCaller
+  - WorldLevel
+  - GearCtrl
+  - RejectHand
+  - BossWord
+  - Light
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Main
+  - Enemy
+  - IgnoreMain
+  - Pencil
+  - PaperBall
+  - Chalk
+  - Candy
+  - Doll
+  - DirtyWord
+  - PencilFlying
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2116099231
+    locked: 0
+  - name: Main
+    uniqueID: 2344118779
+    locked: 0
+  - name: Enemy
+    uniqueID: 3405993979
+    locked: 0
+  - name: Effect
+    uniqueID: 2835005233
+    locked: 0

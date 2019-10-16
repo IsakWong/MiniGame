@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8045deeb0bfb9f43bcbe8e158c3e436, type: 3}
+  m_Name: Level3EnemyList
+  m_EditorClassIdentifier: 
+  LevelEnemyList:
+  - Type: 7
+    EnemyMoveType: 0
+    GenerateTime: 4
+    Angle: 90
+    AngleVelocity: 0
+    VelocityDirectionAngle: 0
+    Velocity: 0
+    Drag: 0
+    AngleDrag: 0
+  - Type: 10
+    EnemyMoveType: 2
+    GenerateTime: 30
+    Angle: 200
+    AngleVelocity: 0
+    VelocityDirectionAngle: 380
+    Velocity: 3
+    Drag: 0
+    AngleDrag: 0
+  - Type: 10
+    EnemyMoveType: 2
+    GenerateTime: 31
+    Angle: 20
+    AngleVelocity: 0
+    VelocityDirectionAngle: 200
+    Velocity: 3
+    Drag: 0
+    AngleDrag: 0
+  - Type: 10
+    EnemyMoveType: 2
+    GenerateTime: 32
+    Angle: 270
+    AngleVelocity: 0
+    VelocityDirectionAngle: 450
+    Velocity: 3
+    Drag: 0
+    AngleDrag: 0
+  - Type: 10
+    EnemyMoveType: 2
+    GenerateTime: 33
+    Angle: 225
+    AngleVelocity: 0
+    VelocityDirectionAngle: 405
+    Velocity: 3
+    Drag: 0
+    AngleDrag: 0
+  - Type: 10
+    EnemyMoveType: 2
+    GenerateTime: 34
+    Angle: 315
+    AngleVelocity: 0
+    VelocityDirectionAngle: 495
+    Velocity: 3
+    Drag: 0
+    AngleDrag: 0
+  - Type: 10
+    EnemyMoveType: 2
+    GenerateTime: 35
+    Angle: 160
+    AngleVelocity: 0
+    VelocityDirectionAngle: 340
+    Velocity: 3
+    Drag: 0
+    AngleDrag: 0
+  - Type: 10
+    EnemyMoveType: 2
+    GenerateTime: 36
+    Angle: 340
+    AngleVelocity: 0
+    VelocityDirectionAngle: 520
+    Velocity: 3
+    Drag: 0
+    AngleDrag: 0
