@@ -22,7 +22,7 @@ public class DebugCanvas : UICanvas
                 d.gameObject.SetActive(!d.gameObject.activeInHierarchy);
             ViewManager.GetView<DebugView>(true);
         });
-
+        name = "[Canvas.Debug]";
     }
  
     float deltaTime = 0.0f;

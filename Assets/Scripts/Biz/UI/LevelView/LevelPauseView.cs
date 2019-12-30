@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using DG.Tweening;
+using Mini.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -80,6 +81,7 @@ public class LevelPauseView : BaseView
 
         BackToMenu.onClick.AddListener(delegate ()
         {
+            
             MiniCore.Get<GameController>().CurrentWorld.ResetWorld();
             MiniCore.Get<GameController>().BackToMenu();
             MiniCore.Get<GameController>().Restore();

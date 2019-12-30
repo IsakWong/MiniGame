@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class MagicFieldEffect : ManagedObject
+public class MagicFieldEffect : EffectObject
 {
-    public float LifeTime = 4;
-    private float _passedLife = 0;
 
     public SpriteRenderer magicSprite1;
     public SpriteRenderer magicSprite2;
@@ -36,14 +34,5 @@ public class MagicFieldEffect : ManagedObject
     {
         seq.Restart();
     }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        _passedLife += Time.fixedDeltaTime;
-        if (_passedLife > LifeTime)
-        {
-            _passedLife = 0;
-            Recycle();
-        }
-    }
+ 
 }

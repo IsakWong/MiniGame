@@ -68,7 +68,7 @@ public class LoadAssetCommand : Command
         }
         else
         {
-            AssetManager.LoadAssetAsync(_assetName, OnLoadingAsset);
+            AssetManager.Instance.LoadAssetAsync(_assetName, OnLoadingAsset);
         }
         
     }

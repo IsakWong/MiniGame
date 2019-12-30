@@ -2,26 +2,84 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Mini.Core;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public static class AssetManager
+public class AssetManager : SingletonManager<AssetManager>
 {
-    public static bool UsingAssetBundle = false;
-    public static Dictionary<string, AssetBundle> bundles = new Dictionary<string, AssetBundle>();
-    public static Dictionary<string, Object> loadedAssets = new Dictionary<string, Object>();
-    private static AssetsConfig _cachedAssetConfig;
+    public bool UsingAssetBundle = false;
+    public Dictionary<string, AssetBundle> bundles = new Dictionary<string, AssetBundle>();
+    public Dictionary<string, Object> loadedAssets = new Dictionary<string, Object>();
+    private AssetsConfig _cachedAssetConfig;
 
-    public static void Init()
+    public void Init()
     {
         _cachedAssetConfig = MiniCore.GetConfig<AssetsConfig>();
 
     }
 
-    public static void LoadAssetAsync(string assetName, Action<bool, float> callback)
+    #region 异步资源 Resource 加载
+    public void LoadAssetAtResourceAsync(string assetName, string assetPath, Action<bool, float> callback)
+    {
+        StartCoroutine(_LoadAssetAtResourceAsync(assetName, assetPath, callback));
+    }
+    IEnumerator _LoadAssetAtResourceAsync(string assetName, string assetPath, Action<bool, float> callback)
+    {
+        var assetLoadRequest = Resources.LoadAsync(assetPath);
+        callback.Invoke(false, assetLoadRequest.progress);
+        yield return assetLoadRequest;
+        loadedAssets.Add(assetName, assetLoadRequest.asset);
+        callback.Invoke(true, 1.0f);
+    }
+    #endregion
+
+    #region 异步资源 AssetBundle 加载
+
+    public void LoadAssetAtAssetBundleAsync(string assetName, string bundleName, Action<bool, float> callback)
+    {
+        if (bundles.TryGetValue(bundleName, out AssetBundle bundle))
+        {
+            StartCoroutine(_LoadAssetAtAssetBundleAsync(bundle, assetName, callback));
+            return;
+        }
+        else
+        {
+            string bundlePath = Path.Combine(Application.streamingAssetsPath, bundleName);
+            StartCoroutine(_LoadAssetBundleAsync(bundlePath, obj =>
+            {
+                bundle = bundles[bundleName];
+                StartCoroutine(_LoadAssetAtAssetBundleAsync(bundle, assetName, callback));
+            }));
+
+        }
+    }
+
+    IEnumerator _LoadAssetBundleAsync(string bundlePath, Action<bool> callback)
+    {
+        var bundleLoadRequest = AssetBundle.LoadFromFileAsync(bundlePath);
+        yield return bundleLoadRequest;
+        bundles.Add(bundleLoadRequest.assetBundle.name, bundleLoadRequest.assetBundle);
+        callback.Invoke(true);
+    }
+
+    IEnumerator _LoadAssetAtAssetBundleAsync(AssetBundle bundle, string assetName, Action<bool, float> callback)
+    {
+        var assetLoadRequest = bundle.LoadAssetAsync<Object>(assetName);
+        callback.Invoke(false, assetLoadRequest.progress);
+        yield return assetLoadRequest;
+        loadedAssets.Add(assetName, assetLoadRequest.asset);
+        callback.Invoke(true, 1.0f);
+    }
+
+    #endregion
+
+
+
+    public void LoadAssetAsync(string assetName, Action<bool, float> callback)
     {
         if (loadedAssets.TryGetValue(assetName, out Object obj))
         {
@@ -31,24 +89,24 @@ public static class AssetManager
         if (UsingAssetBundle)
         {
             string bundleName = _cachedAssetConfig.GetAssetBundle(assetName);
-            MiniCore.CoreBehaviour.LoadAssetAtAssetBundleAsync(assetName, bundleName, callback);
+            LoadAssetAtAssetBundleAsync(assetName, bundleName, callback);
         }
         else
         {
             string path = _cachedAssetConfig.GetAssetPath(assetName);
-            MiniCore.CoreBehaviour.LoadAssetAtResourceAsync(assetName, path, callback);
+            LoadAssetAtResourceAsync(assetName, path, callback);
         }
-     
-    }
-    public static T LoadAsset<T>(string assetName) where T : Object
-    {
-        return _InternalLoadAsset<T>(assetName);
+
     }
     public static GameObject LoadGameObject(string assetName)
     {
         return LoadAsset<GameObject>(assetName);
     }
-    private static T _InternalLoadAsset<T>(string assetName) where T : Object
+    public static T LoadAsset<T>(string assetName) where T : Object
+    {
+        return Instance._InternalLoadAsset<T>(assetName);
+    }
+    private T _InternalLoadAsset<T>(string assetName) where T : Object
     {
         string bundleName;
 #if UNITY_EDITOR
@@ -137,12 +195,12 @@ public static class AssetManager
         }
 #endif
 
-        bundles.Clear();
-        loadedAssets.Clear();
+        Instance.bundles.Clear();
+        Instance.loadedAssets.Clear();
     }
 
 
-    public static AssetBundle LoadBundle(string bundleName)
+    public AssetBundle LoadBundle(string bundleName)
     {
 #if UNITY_EDITOR
         return null;

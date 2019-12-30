@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Mini.Core;
 using UnityEngine;
 
 public class WorldLevel0 : BaseWorld

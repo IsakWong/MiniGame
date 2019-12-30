@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using DG.Tweening;
+using Mini.Core;
 using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;

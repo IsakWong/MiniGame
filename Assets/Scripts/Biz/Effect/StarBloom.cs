@@ -9,7 +9,7 @@ public enum StarColor
     Blue,
     Yellow
 }
-public class StarBloom : ParticleObject
+public class StarBloom : EffectObject
 {
     public ParticleSystem Particle;
     public Color Blue;

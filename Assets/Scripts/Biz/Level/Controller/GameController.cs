@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using DG.Tweening;
 using DG.Tweening.Plugins;
+using Mini.Core;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using Random = UnityEngine.Random;

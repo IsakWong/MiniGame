@@ -1,4 +1,5 @@
 ﻿
+using Mini.Core;
 using UnityEngine;
 
 public class CharacterController : BaseController
@@ -39,7 +40,7 @@ public class CharacterController : BaseController
         get { return _score; }
         set
         {
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
             MessageManager.Emit<float,float>(GlobalGameMessage.OnScoreChange,_score,value);
             _score = value;
         }

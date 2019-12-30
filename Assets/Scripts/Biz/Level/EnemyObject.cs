@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Mini.Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -208,9 +209,9 @@ public class EnemyObject : ManagedObject
     }
 
     #region Behaviour 重载函数
-
     protected void Awake()
     {
+        base.Awake();
         NormalScale = transform.localScale;
         CachedRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -231,6 +232,10 @@ public class EnemyObject : ManagedObject
 
         }
 
+    }
+    protected override string GetCategory() 
+    {
+        return "[World.Enemy]";
     }
     #endregion
 

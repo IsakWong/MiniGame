@@ -7,7 +7,7 @@ public class UICanvas : BaseView
 {
     protected new void Awake()
     {
-        if (ViewManager.CreatingCanvas == false)
+        if (ViewManager.Instance.CreatingCanvas == false)
         {
             if (ViewManager.GetCanvas(GetType().Name) != this)
             {

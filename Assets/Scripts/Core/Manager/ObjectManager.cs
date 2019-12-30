@@ -4,17 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-
-public static class ObjectManager
+public static class ObjectManagerExt
 {
-    public static Dictionary<string,HashSet<ManagedObject>> ManagedObjectPool = new Dictionary<string, HashSet<ManagedObject>>();
-
-
-    public static void RegisterSceneObjectToPool(ManagedObject managed)
-    {
-        HashSet<ManagedObject> unusedPool = GetObjectPool(managed.PrefabName);
-    }
-    
     public static void RecycleManagerObject(this MonoBehaviour behaviour)
     {
         ManagedObject managed = behaviour.GetComponent<ManagedObject>();
@@ -24,16 +15,28 @@ public static class ObjectManager
             LogManager.Log("Error:该物体无法被回收");
             return;
         }
-        HashSet<ManagedObject> objectPool = GetObjectPool(managed.PrefabName);
-        
+        HashSet<ManagedObject> objectPool = ObjectManager.Instance.GetObjectPool(managed.PrefabName);
+
         objectPool.Add(managed);
         result.BroadcastMessage("OnRecycle", SendMessageOptions.DontRequireReceiver);
         result.SetActive(false);
     }
+}
+public class ObjectManager : SingletonManager<ObjectManager>
+{
+    public Dictionary<string,HashSet<ManagedObject>> ManagedObjectPool = new Dictionary<string, HashSet<ManagedObject>>();
+
+ 
+    public void RegisterSceneObjectToPool(ManagedObject managed)
+    {
+        HashSet<ManagedObject> unusedPool = GetObjectPool(managed.PrefabName);
+    }
+    
+
 
     public static T CreateManagedObject<T>(string prefabName)
     {
-        HashSet<ManagedObject> objectPool = GetObjectPool(prefabName);
+        HashSet<ManagedObject> objectPool = Instance.GetObjectPool(prefabName);
         GameObject result = null;
         ManagedObject managed = null;
         if (objectPool.Count == 0)
@@ -57,7 +60,7 @@ public static class ObjectManager
     }
     public static GameObject CreateManagedObject(string prefabName)
     {
-        HashSet<ManagedObject> objectPool = GetObjectPool(prefabName);
+        HashSet<ManagedObject> objectPool = Instance.GetObjectPool(prefabName);
         GameObject result = null;
         ManagedObject managed = null;
         if (objectPool.Count == 0)
@@ -80,12 +83,12 @@ public static class ObjectManager
         return result;
     }
     
-    private static void RegisterType(string prefabName)
+    private void RegisterType(string prefabName)
     {
         HashSet<ManagedObject> unusedPool = GetObjectPool(prefabName);
     }
 
-    private static HashSet<ManagedObject> GetObjectPool(string prefabName)
+    public HashSet<ManagedObject> GetObjectPool(string prefabName)
     {
         HashSet<ManagedObject> objectPool = null;
         if (!ManagedObjectPool.TryGetValue(prefabName, out objectPool))
@@ -96,3 +99,5 @@ public static class ObjectManager
         return objectPool;
     }
 }
+
+

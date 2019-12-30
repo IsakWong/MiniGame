@@ -20,6 +20,12 @@ MonoBehaviour:
     - MainMenu
     - Story0
     - DebugView
+    - GuideOverlay
+    - GuideConfig
+    - LevelVictoryView
+    - Sound
+    - "\u9F7F\u8F6E"
+    - "\u65F6\u949F"
   - WorldIndex: 1
     SerializedList:
     - "\u96E8\u591C-01"
@@ -47,6 +53,7 @@ MonoBehaviour:
     - "\u65F6\u949F"
     - DebugView
     - LevelPauseView
+    - LevelDefeatView
   - WorldIndex: 2
     SerializedList:
     - "\u96E8\u591C-02"
@@ -91,6 +98,26 @@ MonoBehaviour:
     - "\u516B\u97F3\u76D22-1"
     - PencilEnemy
     - PaperBallEnemy
+    - WorldCacheAssetConfig
+    - LevelOverlayView
+    - LevelBeginView
+    - ThunderEffect
+    - GuideOverlay
+    - GuideConfig
+    - MagicField
+    - ChalkEnemy
+    - SmokeBoom
+    - Boom3DText
+    - StarBloom
+    - Sound
+    - ding3
+    - CandyEnemy
+    - "\u6263\u8840\u97F3\u6548"
+    - BookEnemy
+    - "\u83B7\u5F97\u7CD6\u679C\u97F3\u6548"
+    - DollEnemy
+    - LevelDefeatView
+    - LevelPauseView
   - WorldIndex: 5
     SerializedList:
     - Level5EnemyList
@@ -121,3 +148,6 @@ MonoBehaviour:
     SerializedList:
     - 3-1
     - Success
+    - LevelVictoryView
+    - "\u9F7F\u8F6E"
+    - "\u65F6\u949F"

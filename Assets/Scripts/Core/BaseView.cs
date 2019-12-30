@@ -11,13 +11,14 @@ public class BaseView : MonoBehaviour
     protected void Awake()
     {
         _cachedCanvasGroup = GetComponent<CanvasGroup>();
-        if (ViewManager.Views.TryGetValue(GetType().ToString(), out BaseView view))
+        if (ViewManager.Instance.Views.TryGetValue(GetType().ToString(), out BaseView view))
         {
 
         }
         else
         {
-            ViewManager.Views.Add(GetType().ToString(),this);
+            ViewManager.Instance.Views.Add(GetType().ToString(),this);
+            ViewManager.Instance.OnViewsChange();
         }
     }
 
@@ -35,7 +36,7 @@ public class BaseView : MonoBehaviour
 
     protected void OnDestroy()
     {
-        ViewManager.Views.Remove(GetType().Name);
+        ViewManager.RemoveView<BaseView>(GetType().Name);
     }
 
     #region 公共接口

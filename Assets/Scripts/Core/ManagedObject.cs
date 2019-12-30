@@ -5,6 +5,8 @@ using UnityEngine;
 public class ManagedObject : MonoBehaviour
 {
     private bool IsManaged = false;
+
+    public static Dictionary<string, GameObject> CategoryParent = new Dictionary<string, GameObject>();
     public string PrefabName = "Prefab";
     public string AssetBundleName = "Assets";
     public bool IsActive = true;
@@ -14,8 +16,19 @@ public class ManagedObject : MonoBehaviour
         if (!IsManaged)
         {
             //场景中预先存在的物体注册到对象池。
-            ObjectManager.RegisterSceneObjectToPool(this);
+            ObjectManager.Instance.RegisterSceneObjectToPool(this);
             IsManaged = true;
+        }
+
+        string category = GetCategory();
+        if (category != "")
+        {
+            if (!CategoryParent.TryGetValue(category, out GameObject target))
+            {
+                target = new GameObject(category);
+                CategoryParent.Add(category, target);
+            }
+            transform.parent = target.transform;
         }
     }
 
@@ -28,6 +41,11 @@ public class ManagedObject : MonoBehaviour
 
     #endregion
 
+
+    protected virtual string GetCategory()
+    {
+        return "";
+    }
     protected virtual void OnRecycle()
     {
     }

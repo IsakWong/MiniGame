@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Mini.Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -113,8 +114,6 @@ public class BlackCharacter : EnemyObject
         Hand curHand = col.gameObject.GetComponent<Hand>();
         if (curHand != null)
         {
-            Debug.Log(curHand.handType);
-
             if (curHand.handType == HandType.RejectHand)
             {
                 TakeHit();

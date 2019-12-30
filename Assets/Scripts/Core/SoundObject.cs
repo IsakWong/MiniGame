@@ -18,5 +18,10 @@ public class SoundObject : ManagedObject
         audioSource.PlayOneShot(clip);
         Invoke("Recycle",clip.length + 0.2f);
     }
+
+    protected override string GetCategory()
+    {
+        return "[Sound]";
+    }
     // Update is called once per frame
 }

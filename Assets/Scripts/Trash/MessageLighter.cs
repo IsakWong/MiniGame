@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Mini.Core;
 using UnityEngine;
 
 public class MessageLighter : MonoBehaviour

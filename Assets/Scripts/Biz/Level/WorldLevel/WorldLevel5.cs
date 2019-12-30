@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Mini.Core;
 using UnityEngine;
 
 public class WorldLevel5 : BaseWorld
@@ -28,6 +29,7 @@ public class WorldLevel5 : BaseWorld
             ChangeEnvironmentLight(EnvLighColor, 1.0f);
             MainSpotLight.spotAngle = 65;
             Rain.RainIntensity = 0.4f;
+            
             MiniCore.ChangeBgm("八音盒2-2",true);
             var levelBeginView = ViewManager.GetView<LevelBeginView>(true);
             levelBeginView.gameObject.SetActive(true);

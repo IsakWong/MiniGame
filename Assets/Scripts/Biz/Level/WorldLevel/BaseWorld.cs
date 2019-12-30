@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using DigitalRuby.RainMaker;
+using Mini.Core;
 using UnityEngine;
 
 public class BaseWorld : MonoBehaviour
@@ -311,7 +312,10 @@ public class BaseWorld : MonoBehaviour
     {
         if (WorldSequence == null)
             WorldSequence = DOTween.Sequence();
-        Rain = GameObject.Find("Rain").GetComponent<RainScript>();
+
+        name = string.Format("[World.{0}]", GetType().Name);
+
+        Rain = GameObject.Find("[World.Rain]").GetComponent<RainScript>();
         WorldSequence.SetAutoKill(false).Pause();
         EnemyTypeTypeList = MiniCore.GetConfig<EnemyTypeConfig>("EnemyTypeList");
         this.AddListener<int, int>(GlobalGameMessage.OnHealthChange, OnHealthChange);
