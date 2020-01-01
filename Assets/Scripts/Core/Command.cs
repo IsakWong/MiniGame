@@ -43,6 +43,7 @@ public class ShowViewCommand<T> : Command where T : BaseView
 public class LoadAssetCommand : Command
 {
     private string _assetName;
+    private float _loadTime = 0;
     private Func<bool, float,bool> _loadingCallback;
     private bool _isLoaded = false;
     
@@ -62,6 +63,7 @@ public class LoadAssetCommand : Command
     public override void Execute()  
     {
         base.Execute();
+        _loadTime = Time.realtimeSinceStartup;
         if (_isLoaded)
         {
 
@@ -71,6 +73,12 @@ public class LoadAssetCommand : Command
             AssetManager.Instance.LoadAssetAsync(_assetName, OnLoadingAsset);
         }
         
+    }
+    public override void Finish()
+    {
+        base.Finish();
+        _loadTime = Time.realtimeSinceStartup - _loadTime;
+        LogManager.Log(string.Format("Asset：<color=#ff0000ff>{0}</color> Load Time：<color=#ff0000ff>{1}</color>", this._assetName,_loadTime));
     }
 
     private void OnLoadingAsset(bool isFinished, float progress)

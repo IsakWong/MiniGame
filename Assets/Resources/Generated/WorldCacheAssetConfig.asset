@@ -118,6 +118,7 @@ MonoBehaviour:
     - DollEnemy
     - LevelDefeatView
     - LevelPauseView
+    - "\u6361\u8D77\u5C0F\u718A"
   - WorldIndex: 5
     SerializedList:
     - Level5EnemyList

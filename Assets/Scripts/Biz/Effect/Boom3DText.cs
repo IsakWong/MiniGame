@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class Boom3DText : ManagedObject
+public class Boom3DText : EffectObject
 {
     public string SortingLayerName = "Default";
     public TextMesh textMesh;
@@ -26,10 +26,6 @@ public class Boom3DText : ManagedObject
         seq.Append(transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutExpo));
         seq.AppendInterval(0.1f);
         seq.Append(transform.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InBack));
-        seq.AppendCallback(delegate ()
-        {
-            Recycle();
-        });
     }
     protected void OnDisable()
     {

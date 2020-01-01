@@ -135,11 +135,11 @@ namespace Mini.Core
 	        }
 	        if (typeof(T) == typeof(AssetsConfig))
 	        {
-	            if (!AssetManager.Instance.loadedAssets.TryGetValue(configName, out Object t))
+	            if (!AssetManager.Instance.LoadAssets.TryGetValue(configName, out Object t))
 	            {
 	                path = "Generated/" + configName;
 	                t = Resources.Load<T>(path);
-	                AssetManager.Instance.loadedAssets.Add(configName, t);
+	                AssetManager.Instance.LoadAssets.Add(configName, t);
 	            }
 	            return (T)t;
 	        }

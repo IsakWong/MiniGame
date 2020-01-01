@@ -18,7 +18,6 @@ public class BaseView : MonoBehaviour
         else
         {
             ViewManager.Instance.Views.Add(GetType().ToString(),this);
-            ViewManager.Instance.OnViewsChange();
         }
     }
 

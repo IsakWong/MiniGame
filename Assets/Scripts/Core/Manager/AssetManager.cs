@@ -1,87 +1,36 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using Mini.Core;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
+using RotaryHeart.Lib.SerializableDictionary;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
+
+public class StringObjectDictionary : SerializableDictionaryBase<string, Object> {};
+public class StringBundlesDictionary : SerializableDictionaryBase<string, AssetBundle> { };
 public class AssetManager : SingletonManager<AssetManager>
 {
     public bool UsingAssetBundle = false;
-    public Dictionary<string, AssetBundle> bundles = new Dictionary<string, AssetBundle>();
-    public Dictionary<string, Object> loadedAssets = new Dictionary<string, Object>();
+    public StringBundlesDictionary LoadBundles = new StringBundlesDictionary();
+    public StringObjectDictionary LoadAssets = new StringObjectDictionary();
     private AssetsConfig _cachedAssetConfig;
 
     public void Init()
     {
         _cachedAssetConfig = MiniCore.GetConfig<AssetsConfig>();
-
     }
 
-    #region 异步资源 Resource 加载
-    public void LoadAssetAtResourceAsync(string assetName, string assetPath, Action<bool, float> callback)
-    {
-        StartCoroutine(_LoadAssetAtResourceAsync(assetName, assetPath, callback));
-    }
-    IEnumerator _LoadAssetAtResourceAsync(string assetName, string assetPath, Action<bool, float> callback)
-    {
-        var assetLoadRequest = Resources.LoadAsync(assetPath);
-        callback.Invoke(false, assetLoadRequest.progress);
-        yield return assetLoadRequest;
-        loadedAssets.Add(assetName, assetLoadRequest.asset);
-        callback.Invoke(true, 1.0f);
-    }
-    #endregion
-
-    #region 异步资源 AssetBundle 加载
-
-    public void LoadAssetAtAssetBundleAsync(string assetName, string bundleName, Action<bool, float> callback)
-    {
-        if (bundles.TryGetValue(bundleName, out AssetBundle bundle))
-        {
-            StartCoroutine(_LoadAssetAtAssetBundleAsync(bundle, assetName, callback));
-            return;
-        }
-        else
-        {
-            string bundlePath = Path.Combine(Application.streamingAssetsPath, bundleName);
-            StartCoroutine(_LoadAssetBundleAsync(bundlePath, obj =>
-            {
-                bundle = bundles[bundleName];
-                StartCoroutine(_LoadAssetAtAssetBundleAsync(bundle, assetName, callback));
-            }));
-
-        }
-    }
-
-    IEnumerator _LoadAssetBundleAsync(string bundlePath, Action<bool> callback)
-    {
-        var bundleLoadRequest = AssetBundle.LoadFromFileAsync(bundlePath);
-        yield return bundleLoadRequest;
-        bundles.Add(bundleLoadRequest.assetBundle.name, bundleLoadRequest.assetBundle);
-        callback.Invoke(true);
-    }
-
-    IEnumerator _LoadAssetAtAssetBundleAsync(AssetBundle bundle, string assetName, Action<bool, float> callback)
-    {
-        var assetLoadRequest = bundle.LoadAssetAsync<Object>(assetName);
-        callback.Invoke(false, assetLoadRequest.progress);
-        yield return assetLoadRequest;
-        loadedAssets.Add(assetName, assetLoadRequest.asset);
-        callback.Invoke(true, 1.0f);
-    }
-
-    #endregion
-
-
-
+    #region 接口
+    /// <summary>
+    /// 将Asset加载进资源表
+    /// </summary>
+    /// <param name="assetName"></param>
+    /// <param name="callback"></param>
     public void LoadAssetAsync(string assetName, Action<bool, float> callback)
     {
-        if (loadedAssets.TryGetValue(assetName, out Object obj))
+        if (LoadAssets.TryGetValue(assetName, out Object obj))
         {
             callback.Invoke(true, 1.0f);
             return;
@@ -102,102 +51,17 @@ public class AssetManager : SingletonManager<AssetManager>
     {
         return LoadAsset<GameObject>(assetName);
     }
+    /// <summary>
+    /// 加载Asset，如果在资源表则直接返回，不在则阻塞加载
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="assetName"></param>
+    /// <returns></returns>
     public static T LoadAsset<T>(string assetName) where T : Object
     {
         return Instance._InternalLoadAsset<T>(assetName);
     }
-    private T _InternalLoadAsset<T>(string assetName) where T : Object
-    {
-        string bundleName;
-#if UNITY_EDITOR
-        bundleName = _cachedAssetConfig.GetAssetBundle(assetName);
-        if (loadedAssets.TryGetValue(assetName, out Object obj1))
-        {
-            return (T)obj1;
-        }
 
-        var game = MiniCore.Get<GameController>(false);
-        if (game != null)
-        {
-            if (MiniCore.CoreBehaviour.SaveCache)
-            {
-                string path = "Assets/Resources/Generated/WorldCacheAssetConfig.asset";
-                WorldCacheAssetConfig config = AssetDatabase.LoadAssetAtPath<WorldCacheAssetConfig>(path);
-                if (!config.WorldAssetListDic.TryGetValue(game.WorldIndex, out WorldAssetList value))
-                {
-                    value = new WorldAssetList();
-                    value.WorldIndex = game.WorldIndex;
-                    config.WorldAssetListDic.Add(game.WorldIndex,value);
-                }
-                if (!value.AssetListSet.Contains(assetName))
-                {
-                    if (!game.IsLoading)
-                        Debug.LogWarningFormat("资源:{0}缓存未命中", assetName);
-                    value.AssetListSet.Add(assetName);
-                }
-
-                EditorUtility.SetDirty(config);
-            }
-          
-        }
-        else
-        {
-
-        }
-
-        string[] assetPaths = AssetDatabase.GetAssetPathsFromAssetBundleAndAssetName(bundleName, assetName);
-        if (assetPaths.Length == 0)
-        {
-            LogManager.Log(
-                String.Format("{0} Error:未在Prefab表中找到 {1} 资源的映射位置。请确定 {2} 的Prefab是否存在，并使用Mini Game Toll/生成Prefab映射修复",
-                    typeof(AssetManager).Name, assetName, assetName)
-                );
-            return null;
-        }
-        Object target = AssetDatabase.LoadAssetAtPath<Object>(assetPaths[0]);
-        loadedAssets.Add(assetName, target);
-        return (T)target;
-#endif
-
-        if (loadedAssets.TryGetValue(assetName, out Object obj))
-        {
-            return (T)obj;
-        }
-
-        if (UsingAssetBundle)
-        {
-            bundleName = _cachedAssetConfig.GetAssetBundle(assetName);
-
-            if (!bundles.TryGetValue(bundleName, out AssetBundle bundle))
-                bundle = LoadBundle(bundleName);
-
-            obj = bundle.LoadAsset<T>(assetName);
-            loadedAssets.Add(assetName, obj);
-            return (T)obj;
-        }
-        else
-        {
-            string path = _cachedAssetConfig.GetAssetPath(assetName);
-            T t = Resources.Load<T>(path);
-            loadedAssets.Add(assetName,t);
-            return t;
-        }
-    
-    }
-
-    public static void Unload()
-    {
-
-#if !UNITY_EDITOR
-        foreach (var bundle in bundles)
-        {
-            bundle.Value.Unload(true);
-        }
-#endif
-
-        Instance.bundles.Clear();
-        Instance.loadedAssets.Clear();
-    }
 
 
     public AssetBundle LoadBundle(string bundleName)
@@ -205,13 +69,13 @@ public class AssetManager : SingletonManager<AssetManager>
 #if UNITY_EDITOR
         return null;
 #endif
-        if (bundles.TryGetValue(bundleName, out AssetBundle bundle))
+        if (LoadBundles.TryGetValue(bundleName, out AssetBundle bundle))
         {
             return bundle;
         }
 
         bundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, bundleName));
-        bundles.Add(bundleName, bundle);
+        LoadBundles.Add(bundleName, bundle);
 
         // TODO AssetBundle依赖
         /*AssetBundleManifest manifest = bundle.InternalLoadAsset<AssetBundleManifest>("AssetBundleManifest");
@@ -225,6 +89,157 @@ public class AssetManager : SingletonManager<AssetManager>
             }
         }*/
         return bundle;
+    }
+
+    public static void Unload()
+    {
+
+#if !UNITY_EDITOR
+        foreach (var bundle in LoadBundles)
+        {
+            bundle.Value.Unload(true);
+        }
+#endif
+
+        Instance.LoadBundles.Clear();
+        Instance.LoadAssets.Clear();
+    }
+
+
+    #endregion
+    #region 异步资源 Resource 加载
+    public void LoadAssetAtResourceAsync(string assetName, string assetPath, Action<bool, float> callback)
+    {
+        StartCoroutine(_LoadAssetAtResourceAsync(assetName, assetPath, callback));
+    }
+    IEnumerator _LoadAssetAtResourceAsync(string assetName, string assetPath, Action<bool, float> callback)
+    {
+        var assetLoadRequest = Resources.LoadAsync(assetPath);
+        callback.Invoke(false, assetLoadRequest.progress);
+        yield return assetLoadRequest;
+        LoadAssets.Add(assetName, assetLoadRequest.asset);
+        callback.Invoke(true, 1.0f);
+    }
+    #endregion
+
+    #region 异步资源 AssetBundle 加载
+
+    public void LoadAssetAtAssetBundleAsync(string assetName, string bundleName, Action<bool, float> callback)
+    {
+        if (LoadBundles.TryGetValue(bundleName, out AssetBundle bundle))
+        {
+            StartCoroutine(_LoadAssetAtAssetBundleAsync(bundle, assetName, callback));
+            return;
+        }
+        else
+        {
+            string bundlePath = Path.Combine(Application.streamingAssetsPath, bundleName);
+            StartCoroutine(_LoadAssetBundleAsync(bundlePath, obj =>
+            {
+                bundle = LoadBundles[bundleName];
+                StartCoroutine(_LoadAssetAtAssetBundleAsync(bundle, assetName, callback));
+            }));
+
+        }
+    }
+
+    IEnumerator _LoadAssetBundleAsync(string bundlePath, Action<bool> callback)
+    {
+        var bundleLoadRequest = AssetBundle.LoadFromFileAsync(bundlePath);
+        yield return bundleLoadRequest;
+        LoadBundles.Add(bundleLoadRequest.assetBundle.name, bundleLoadRequest.assetBundle);
+        callback.Invoke(true);
+    }
+
+    IEnumerator _LoadAssetAtAssetBundleAsync(AssetBundle bundle, string assetName, Action<bool, float> callback)
+    {
+        var assetLoadRequest = bundle.LoadAssetAsync<Object>(assetName);
+        callback.Invoke(false, assetLoadRequest.progress);
+        yield return assetLoadRequest;
+        LoadAssets.Add(assetName, assetLoadRequest.asset);
+        callback.Invoke(true, 1.0f);
+    }
+
+    #endregion
+    private T _InternalLoadAsset<T>(string assetName) where T : Object
+    {
+        string bundleName;
+
+#if UNITY_EDITOR
+        bundleName = _cachedAssetConfig.GetAssetBundle(assetName);
+        if (LoadAssets.TryGetValue(assetName, out Object obj1))
+        {
+            return (T)obj1;
+        }
+        #region Asset Cache
+        var game = MiniCore.Get<GameController>(false);
+        if (game != null)
+        {
+            if (MiniCore.CoreBehaviour.SaveCache)
+            {
+                string path = "Assets/Resources/Generated/WorldCacheAssetConfig.asset";
+                WorldCacheAssetConfig config = AssetDatabase.LoadAssetAtPath<WorldCacheAssetConfig>(path);
+                if (!config.WorldAssetListDic.TryGetValue(game.WorldIndex, out WorldAssetList value))
+                {
+                    value = new WorldAssetList();
+                    value.WorldIndex = game.WorldIndex;
+                    config.WorldAssetListDic.Add(game.WorldIndex, value);
+                }
+                if (!value.AssetListSet.Contains(assetName))
+                {
+                    if (!game.IsLoading)
+                        Debug.LogWarningFormat("资源:{0}缓存未命中", assetName);
+                    value.AssetListSet.Add(assetName);
+                }
+
+                EditorUtility.SetDirty(config);
+            }
+
+        }
+        else
+        {
+
+        }
+
+        string[] assetPaths = AssetDatabase.GetAssetPathsFromAssetBundleAndAssetName(bundleName, assetName);
+        if (assetPaths.Length == 0)
+        {
+            LogManager.Log(
+                String.Format("{0} Error:未在Prefab表中找到 {1} 资源的映射位置。请确定 {2} 的Prefab是否存在，并使用Mini Game Toll/生成Prefab映射修复",
+                    typeof(AssetManager).Name, assetName, assetName)
+            );
+            return null;
+        }
+        Object target = AssetDatabase.LoadAssetAtPath<Object>(assetPaths[0]);
+        LoadAssets.Add(assetName, target);
+        return (T)target;
+        #endregion
+#endif
+
+        if (LoadAssets.TryGetValue(assetName, out Object obj))
+        {
+            return (T)obj;
+        }
+
+        if (UsingAssetBundle)
+        {
+            bundleName = _cachedAssetConfig.GetAssetBundle(assetName);
+
+            if (!LoadBundles.TryGetValue(bundleName, out AssetBundle bundle))
+                bundle = LoadBundle(bundleName);
+
+            obj = bundle.LoadAsset<T>(assetName);
+            LoadAssets.Add(assetName, obj);
+            return (T)obj;
+        }
+        else
+        {
+            string path = _cachedAssetConfig.GetAssetPath(assetName);
+            T t = Resources.Load<T>(path);
+            LoadAssets.Add(assetName,t);
+            return t;
+        }
+    
     }
 
     public class Utility

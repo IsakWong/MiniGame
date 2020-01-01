@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RotaryHeart.Lib.SerializableDictionary;
 using UnityEditor;
 using UnityEngine;
 public static class ObjectManagerExt
@@ -22,9 +23,13 @@ public static class ObjectManagerExt
         result.SetActive(false);
     }
 }
+
+public class StringObjectPoolDictionary : SerializableDictionaryBase<string, HashSet<ManagedObject>>
+{
+};
 public class ObjectManager : SingletonManager<ObjectManager>
 {
-    public Dictionary<string,HashSet<ManagedObject>> ManagedObjectPool = new Dictionary<string, HashSet<ManagedObject>>();
+    public StringObjectPoolDictionary ManagedObjectPool = new StringObjectPoolDictionary();
 
  
     public void RegisterSceneObjectToPool(ManagedObject managed)
@@ -97,6 +102,19 @@ public class ObjectManager : SingletonManager<ObjectManager>
             ManagedObjectPool.Add(prefabName, objectPool);
         }
         return objectPool;
+    }
+
+    protected override void DestroyManagedObjects()
+    {
+        LogManager.Log("Clearing Objects....", Color.blue);
+        foreach (var pool in Instance.ManagedObjectPool.Values)
+        {
+            foreach (var gameobject in pool)
+            {
+                GameObject.Destroy(gameobject);
+            }
+        }
+        LogManager.Log("Clear Objects Succeeded....", Color.blue);
     }
 }
 

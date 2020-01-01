@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Excel.Log;
+using UnityEngine;
 using UnityEditor;
 
 public class SingletonManager<T> : MonoBehaviour where T : Component
@@ -8,18 +9,36 @@ public class SingletonManager<T> : MonoBehaviour where T : Component
     private static T _instance;
     public static T Instance
     {
-        get { return _instance != null ? _instance : _instance = new GameObject("[" + typeof(T).Name + "]").AddComponent<T>(); }
+        get
+        {
+            if (_instance != null)
+                return _instance;
+            else
+            {
+                return  _instance = new GameObject("[" + typeof(T).Name + "]").AddComponent<T>();
+            }
+        }
     }
 
     public static GameObject ManagerParent;
     void Awake()
     {
         GameObject parent = GameObject.Find("[Manager]");
+        LogManager.Log(string.Format("{0} Awake",GetType().Name));
         if (parent == null )
             parent = new GameObject("[Manager]");
         transform.parent = parent.transform;
 
         _instance = gameObject.GetComponent<T>();
+    }
+
+    public virtual void OnDispose()
+    {
+        DestroyManagedObjects();
+    }
+    protected virtual void DestroyManagedObjects()
+    {
+
     }
     #endregion
 }

@@ -15,4 +15,10 @@ public class UICanvas : BaseView
             }
         }
     }
+
+    protected new void OnDestroy()
+    {
+        Debug.Log(gameObject);
+        ViewManager.Instance.CanvasDictionary.Remove(GetType().Name);
+    }
 }

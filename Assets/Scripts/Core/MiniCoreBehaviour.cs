@@ -16,6 +16,13 @@ public class MiniCoreBehaviour : MonoBehaviour
 
     private Tweener _bgmTweener;
     private Tweener bgmTweener2;
+    static bool OnDispose()
+    {
+        LogManager.Log("Application Closing....", Color.blue);
+        ViewManager.Instance.OnDispose();
+        ObjectManager.Instance.OnDispose();
+        return true;
+    }
 
     void Awake()
     {
@@ -35,13 +42,14 @@ public class MiniCoreBehaviour : MonoBehaviour
 #endif
         #endregion
 
+        Application.wantsToQuit += OnDispose;
 
         #region 初始化Canvas
 
         MainCanvas canvas = GameObject.FindObjectOfType<MainCanvas>();
         if (canvas != null)
         {
-            ViewManager.Instance.CanvasDic.Add(typeof(MainCanvas).Name, canvas);
+            ViewManager.Instance.CanvasDictionary.Add(typeof(MainCanvas).Name, canvas);
             ViewManager.Instance.CurrentMainCanvas = canvas;
         }
 
@@ -99,11 +107,6 @@ public class MiniCoreBehaviour : MonoBehaviour
         }
 
 #endif
-
-        if (MiniCore.CoreBehaviour == this)
-        {
-            AssetManager.Unload();
-        }
 
     }
 

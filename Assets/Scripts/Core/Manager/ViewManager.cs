@@ -1,7 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using RotaryHeart.Lib.SerializableDictionary;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
+
+[System.Serializable]
+public class ViewDic : SerializableDictionaryBase<string, BaseView> { }
+[System.Serializable]
+public class CanavsDic : SerializableDictionaryBase<string, UICanvas> { }
 
 public class ViewManager : SingletonManager<ViewManager>
 {
@@ -11,17 +18,13 @@ public class ViewManager : SingletonManager<ViewManager>
 
     public bool CreatingCanvas = false;
 
-    public List<BaseView> VisualViews = new List<BaseView>();
 
-    public Dictionary<string, BaseView> Views = new Dictionary<string, BaseView>();
-    public Dictionary<string, UICanvas> CanvasDic = new Dictionary<string, UICanvas>();
+    [SerializeField]
+    public ViewDic Views = new ViewDic();
+    [SerializeField]
+    public CanavsDic CanvasDictionary = new CanavsDic();
 
 
-    public void OnViewsChange()
-    {
-        VisualViews.Clear();
-        VisualViews.AddRange(Views.Values);
-    }
 
     #region 公共接口
 
@@ -29,7 +32,7 @@ public class ViewManager : SingletonManager<ViewManager>
     {
         Instance.CreatingCanvas = true;
         T t = GameObject.Instantiate(AssetManager.LoadGameObject(typeof(T).Name).GetComponent<T>());
-        Instance.CanvasDic.Add(typeof(T).Name, t);
+        Instance.CanvasDictionary.Add(typeof(T).Name, t);
         if (typeof(T) == typeof(MainCanvas))
             Instance.CurrentMainCanvas = t;
         Instance.CreatingCanvas = false;
@@ -43,7 +46,7 @@ public class ViewManager : SingletonManager<ViewManager>
 
     public static UICanvas GetCanvas(string name)
     {
-        if (Instance.CanvasDic.TryGetValue(name, out UICanvas canvas))
+        if (Instance.CanvasDictionary.TryGetValue(name, out UICanvas canvas))
         {
             return canvas;
         }
@@ -51,7 +54,7 @@ public class ViewManager : SingletonManager<ViewManager>
     }
     public static T GetCanvas<T>() where T : UICanvas
     {
-        if (Instance.CanvasDic.TryGetValue(typeof(T).Name, out UICanvas canvas))
+        if (Instance.CanvasDictionary.TryGetValue(typeof(T).Name, out UICanvas canvas))
         {
             return (T)canvas;
         }
@@ -67,7 +70,7 @@ public class ViewManager : SingletonManager<ViewManager>
                 old.transform.GetChild(i).transform.SetParent(newCanvas.transform, true);
             }
 
-            Instance.CanvasDic[old.GetType().Name] = newCanvas;
+            Instance.CanvasDictionary[old.GetType().Name] = newCanvas;
             GameObject.Destroy(old.gameObject, 0.1f);
         }
         if (newCanvas.GetType() == typeof(MainCanvas))
@@ -79,10 +82,8 @@ public class ViewManager : SingletonManager<ViewManager>
         if (!Instance.Views.TryGetValue(name, out var b))
             return false;
         Instance.Views.Remove(name);
-        ViewManager.Instance.OnViewsChange();
         return true;
     }
-
     public static T GetView<T>(bool create = true) where T : BaseView
     {
         return GetView<T, MainCanvas>(create);
@@ -104,7 +105,7 @@ public class ViewManager : SingletonManager<ViewManager>
         if (create)
         {
             GameObject origin = AssetManager.LoadGameObject(name);
-            if (!Instance.CanvasDic.TryGetValue(typeof(T2).Name, out UICanvas canvas))
+            if (!Instance.CanvasDictionary.TryGetValue(typeof(T2).Name, out UICanvas canvas))
             {
                 canvas = CreateCanvas<T2>();
             }
@@ -116,4 +117,32 @@ public class ViewManager : SingletonManager<ViewManager>
 
 
     #endregion
+    protected override void DestroyManagedObjects()
+    {
+        LogManager.Log("Clearing Views....", Color.blue);
+        {
+
+            List<BaseView> ToDestroyList = Instance.Views.Values.ToList();
+            for (int i = 0; i < ToDestroyList.Count; ++i)
+            {
+                GameObject.DestroyImmediate(ToDestroyList[i]);
+                ToDestroyList[i] = null;
+            }
+        }
+        LogManager.Log("Clear Views Succeeded....", Color.blue);
+
+
+        LogManager.Log("Clearing Canvas....", Color.blue);
+        {
+
+            List<UICanvas> ToDestroyList = Instance.CanvasDictionary.Values.ToList();
+            for (int i = 0; i < ToDestroyList.Count; ++i)
+            {
+                GameObject.DestroyImmediate(ToDestroyList[i]);
+                ToDestroyList[i] = null;
+            }
+        }
+        LogManager.Log("Clear Canvas Succeeded....", Color.blue);
+    }
+
 }
