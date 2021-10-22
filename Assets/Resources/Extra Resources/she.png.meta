@@ -1,57 +1,153 @@
 fileFormatVersion: 2
 guid: cb53ed86a4f6d5f4084dadf18e75be3c
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: she_0
-    21300002: she_1
-    21300004: she_2
-    21300006: she_3
-    21300008: she_4
-    21300010: she_5
-    21300012: she_6
-    21300014: she_7
-    21300016: she_8
-    21300018: she_9
-    21300020: she_10
-    21300022: she_11
-    21300024: she_12
-    21300026: she_13
-    21300028: she_14
-    21300030: she_15
-    21300032: she_16
-    21300034: she_17
-    21300036: she_18
-    21300038: she_19
-    21300040: she_20
-    21300042: she_21
-    21300044: she_22
-    21300046: she_23
-    21300048: she_24
-    21300050: she_25
-    21300052: she_26
-    21300054: she_27
-    21300056: she_28
-    21300058: she_29
-    21300060: she_30
-    21300062: she_31
-    21300064: she_32
-    21300066: she_33
-    21300068: she_34
-    21300070: she_35
-    21300072: she_36
-    21300074: she_37
-    21300076: she_38
-    21300078: she_39
-    21300080: she_40
-    21300082: she_41
-    21300084: she_42
-    21300086: she_43
-    21300088: she_44
-    21300090: she_45
-    21300092: she_46
-    21300094: she_47
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: she_0
+  - first:
+      213: 21300002
+    second: she_1
+  - first:
+      213: 21300004
+    second: she_2
+  - first:
+      213: 21300006
+    second: she_3
+  - first:
+      213: 21300008
+    second: she_4
+  - first:
+      213: 21300010
+    second: she_5
+  - first:
+      213: 21300012
+    second: she_6
+  - first:
+      213: 21300014
+    second: she_7
+  - first:
+      213: 21300016
+    second: she_8
+  - first:
+      213: 21300018
+    second: she_9
+  - first:
+      213: 21300020
+    second: she_10
+  - first:
+      213: 21300022
+    second: she_11
+  - first:
+      213: 21300024
+    second: she_12
+  - first:
+      213: 21300026
+    second: she_13
+  - first:
+      213: 21300028
+    second: she_14
+  - first:
+      213: 21300030
+    second: she_15
+  - first:
+      213: 21300032
+    second: she_16
+  - first:
+      213: 21300034
+    second: she_17
+  - first:
+      213: 21300036
+    second: she_18
+  - first:
+      213: 21300038
+    second: she_19
+  - first:
+      213: 21300040
+    second: she_20
+  - first:
+      213: 21300042
+    second: she_21
+  - first:
+      213: 21300044
+    second: she_22
+  - first:
+      213: 21300046
+    second: she_23
+  - first:
+      213: 21300048
+    second: she_24
+  - first:
+      213: 21300050
+    second: she_25
+  - first:
+      213: 21300052
+    second: she_26
+  - first:
+      213: 21300054
+    second: she_27
+  - first:
+      213: 21300056
+    second: she_28
+  - first:
+      213: 21300058
+    second: she_29
+  - first:
+      213: 21300060
+    second: she_30
+  - first:
+      213: 21300062
+    second: she_31
+  - first:
+      213: 21300064
+    second: she_32
+  - first:
+      213: 21300066
+    second: she_33
+  - first:
+      213: 21300068
+    second: she_34
+  - first:
+      213: 21300070
+    second: she_35
+  - first:
+      213: 21300072
+    second: she_36
+  - first:
+      213: 21300074
+    second: she_37
+  - first:
+      213: 21300076
+    second: she_38
+  - first:
+      213: 21300078
+    second: she_39
+  - first:
+      213: 21300080
+    second: she_40
+  - first:
+      213: 21300082
+    second: she_41
+  - first:
+      213: 21300084
+    second: she_42
+  - first:
+      213: 21300086
+    second: she_43
+  - first:
+      213: 21300088
+    second: she_44
+  - first:
+      213: 21300090
+    second: she_45
+  - first:
+      213: 21300092
+    second: she_46
+  - first:
+      213: 21300094
+    second: she_47
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -71,6 +167,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -105,8 +202,10 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,7 +216,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -128,7 +228,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,6 +240,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -178,6 +280,7 @@ TextureImporter:
         length: 201.66096
         parentId: 1
       spriteID: aa482d86f098b9e4290069d3b8dd685b
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -186,10 +289,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: a48ae41f09207034baa4d8a9aec67418
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

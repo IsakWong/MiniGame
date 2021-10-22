@@ -1,9 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Mini.Core;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.UI;
 
 public class Watch : MonoBehaviour

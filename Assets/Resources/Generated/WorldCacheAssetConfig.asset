@@ -92,6 +92,7 @@ MonoBehaviour:
     - "\u6263\u8840\u97F3\u6548"
     - LevelVictoryView
     - "\u9F7F\u8F6E"
+    - "\u65F6\u949F"
   - WorldIndex: 4
     SerializedList:
     - Level4EnemyList
@@ -145,6 +146,8 @@ MonoBehaviour:
     - LevelVictoryView
     - "\u9F7F\u8F6E"
     - "\u65F6\u949F"
+    - "\u6263\u8840\u97F3\u6548"
+    - LevelDefeatView
   - WorldIndex: 6
     SerializedList:
     - 3-1
@@ -152,3 +155,6 @@ MonoBehaviour:
     - LevelVictoryView
     - "\u9F7F\u8F6E"
     - "\u65F6\u949F"
+    - WorldCacheAssetConfig
+    - LevelOverlayView
+    - Sound

@@ -1,9 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using RotaryHeart.Lib.SerializableDictionary;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 
 [System.Serializable]
 public class ViewDic : SerializableDictionaryBase<string, BaseView> { }
